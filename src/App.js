@@ -1,10 +1,12 @@
 import './App.css';
-import Card from './components/Card';
+import CardList from './components/CardList';
+import 'tachyons';
+import { robots } from './robots';
 
 function App() {
   return (
     <div className="App">
-      <Card />
+      <CardList robots={robots} />
     </div>
   );
 }

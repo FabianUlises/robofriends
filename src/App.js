@@ -6,7 +6,7 @@ import SearchBar from './components/SearchBar';
 // Styling
 import 'tachyons';
 // MOck data
-import { robotsData } from './robots';
+// import { robotsData } from './robots';
 
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
       .then(users => setRobots(users))
-  })
+  }, []);
   // Manage search input
   const onSearchChange = (e) => {
     setSearchfield(e.target.value);

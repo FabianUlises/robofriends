@@ -10,6 +10,6 @@ const store = createStore(searchRobots);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
-      <App />
+      <App store={store} />
     </Provider>
 );

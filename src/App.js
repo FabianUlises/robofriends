@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 // Components
 import CardList from './components/CardList';
@@ -15,7 +15,7 @@ const App = () => {
   const [searchfield, setSearchfield] = useState('');
   // useEffect
   useEffect(() => {
-    setRobots(robotsData);
+    // setRobots(robotsData);
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
       .then(users => setRobots(users))

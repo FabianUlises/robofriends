@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const SearchBar = ({ searchfield, searchChange }) => {
   return (
@@ -8,4 +8,4 @@ const SearchBar = ({ searchfield, searchChange }) => {
   )
 }
 
-export default SearchBar
+export default SearchBar;

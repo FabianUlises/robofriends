@@ -3,16 +3,17 @@ import './App.css';
 // Components
 import CardList from './components/CardList';
 import SearchBar from './components/SearchBar';
+// Libraries
 // Styling
 import 'tachyons';
 // MOck data
 // import { robotsData } from './robots';
 
 
-const App = () => {
+const App = ({ store }) => {
   // State
   const [robots, setRobots] = useState([]);
-  const [searchfield, setSearchfield] = useState('');
+  const { searchField, onSearchChange } = store.getState();
   // useEffect
   useEffect(() => {
     // setRobots(robotsData);
@@ -21,18 +22,18 @@ const App = () => {
       .then(users => setRobots(users))
   }, []);
   // Manage search input
-  const onSearchChange = (e) => {
-    setSearchfield(e.target.value);
-  };
+  // const onSearchChange = (e) => {
+  //   setSearchfield(e.target.value);
+  // };
   const filteredRobots = robots.filter(robot => {
-    return robot.name.toLowerCase().includes(searchfield.toLowerCase());
+    return robot.name.toLowerCase().includes(searchField.toLowerCase());
   });
   // Jsx
   if(robots.length === 0) {
     return <h1 style={{ textAlign: 'center' }}>Loading</h1>
   } else {
     return (
-      // Start of app
+      // Start of app UI
       <div className="App">
         {/* App title */}
         <h1>RoboFriends</h1>
@@ -41,8 +42,8 @@ const App = () => {
         {/* Cardlist component */}
         <CardList robots={filteredRobots} />
       </div>
-      // End of app
+      // End of app UI
     );
   }
 };
-export default App;
+export default connect(mapStateToProps, dispatchStateToProps)(App);

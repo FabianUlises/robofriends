@@ -9,7 +9,5 @@ import { searchRobots } from './reducers';
 const store = createStore(searchRobots);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Provider store={store}>
-      <App store={store} />
-    </Provider>
+    <App />
 );
